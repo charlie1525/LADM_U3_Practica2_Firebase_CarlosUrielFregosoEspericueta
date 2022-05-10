@@ -64,7 +64,7 @@ class HomeFragment : Fragment() {
             .show()
     }
 
-    fun mostrar(){
+    /*fun mostrar(){
         dataList.clear()
         listaIds.clear()
         fireData.collection("area").addSnapshotListener { querySnapshot, ffException ->
@@ -93,7 +93,7 @@ class HomeFragment : Fragment() {
 
 
         }// fin del snapshot listener
-    }// fin del método para mostrar
+    }// fin del método para mostrar*/
 
     private fun eliminar(idSeleccionado: String) {
         fireData.collection("area").document(idSeleccionado).delete()
@@ -103,7 +103,7 @@ class HomeFragment : Fragment() {
             .addOnSuccessListener {
                 alerta("Se haa eliminado con exito")
             }
-        mostrar()
+       // mostrar()
     }
 
     private fun actualizarEdificio(IdElegido: String, nuevoEdificio: String){
@@ -122,7 +122,7 @@ class HomeFragment : Fragment() {
     }
 
     override fun onResume() {
-        mostrar()
+        //mostrar()
         super.onResume()
     }
 }
