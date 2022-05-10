@@ -1,10 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.home.HomeFragment"
+    android:padding="20dp"
+    android:orientation="vertical"
+    android:layout_gravity="center">
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descripción del área:"
+        android:inputType="text"
+        android:id="@+id/txtHdescripcion"
+        android:layout_marginBottom="10dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="División del área:"
+        android:inputType="text"
+        android:id="@+id/txtHdivision"
+        android:layout_marginBottom="10dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cantidad de empleados:"
+        android:inputType="number"
+        android:id="@+id/txtHcantEmpleados"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="insertar"
+        android:id="@+id/btnHinsertar"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        android:id="@+id/btnHbusqueda"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rgHcriterioBusqueda"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="División"
+            android:id="@+id/rbtnHdivision"
+            android:padding="10dp"
+            android:layout_marginLeft="40dp"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descripción"
+            android:id="@+id/rbtnHdescripcion"
+            android:layout_marginLeft="50dp"/>
+
+    </RadioGroup>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lvHareas"
+        android:layout_marginTop="5dp"/>
+
+</LinearLayout>

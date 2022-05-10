@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "618405100011",
+    "project_id": "ladm-practica2-carlosufregoso",
+    "storage_bucket": "ladm-practica2-carlosufregoso.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618405100011:android:f2d4afaccd859f60aa01ae",
+        "android_client_info": {
+          "package_name": "mx.tecnm.ittepic.ladm_u3_practica2_basedatosfirebase_carlosurielfregosoespericueta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618405100011-o4fb6t4q9nfm76jh7sdbnt25venec0d7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWa595muQjYoEiaQ7IzKeNs2D6zx4jv_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618405100011-o4fb6t4q9nfm76jh7sdbnt25venec0d7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,6 +3,7 @@ package mx.tecnm.ittepic.ladm_u3_practica2_basedatosfirebase_carlosurielfregosoe
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -14,10 +15,10 @@ class MainActivity : AppCompatActivity() {
     /*----------------  Aquí para poner las variables globales -------------------- */
 
 
-
     /* ---------------------------------------------------------------------------- */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        actionBar?.hide()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val navView: BottomNavigationView = binding.navView
@@ -31,6 +32,9 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+
+
 
         /*------------------------  Editar código desde aquí  -----------------*/
     }// fin del OnCreate
