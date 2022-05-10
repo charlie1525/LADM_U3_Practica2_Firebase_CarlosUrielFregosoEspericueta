@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">LADM_U3_Practica2_BaseDatosFirebase_CarlosUrielFregosoEspericueta</string>
+    <string name="title_home">Área</string>
+    <string name="title_dashboard">SubDepartamentos</string>
+    <string name="title_notifications">Notifications</string>
+</resources>
