@@ -19,9 +19,9 @@ class HomeFragment : Fragment() {
     var fireData = FirebaseFirestore.getInstance()
     val dataList = ArrayList<String>()
     val listaIds = ArrayList<String>()
-    var depaId = 2
+    var depaId = 1
     var dataArrayMap = ArrayList<String>()
-    val colAreaRef = fireData.collection("area")
+    val collectionAreaRef = fireData.collection("area")
     var dataObjectMap = HashMap<String,Any>()
 
 
@@ -31,7 +31,7 @@ class HomeFragment : Fragment() {
     * retrive last document https://stackoverflow.com/questions/52362292/how-to-retrieve-the-last-document-in-a-firebase-collection-i-would-also-like-to
     * insert array in firestore https://stackoverflow.com/questions/52813901/how-to-insert-array-of-objects-in-firestore
     * insert object data safetly https://stackoverflow.com/questions/50592980/add-new-field-in-nested-object-firestore-android
-    *nested object in firestore https://www.youtube.com/watch?v=errtXHEvzsc (issue cause have 3-4 years old)
+    * nested object in firestore https://www.youtube.com/watch?v=errtXHEvzsc (issue cause have 3-4 years old)
     * */
     /*--------------------------------------------------------------------------------------------*/
     // This property is only valid between onCreateView and
@@ -47,6 +47,20 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         /*--------------------------- Editar código desde aquí -----------------------------*/
+        binding.rgHbusquedaSubD.visibility = View.GONE
+        binding.rgHbusquedaArea.visibility = View.GONE
+        // definiendo la funcionalidad de los radio buttons
+
+        binding.btnHinsertar.setOnClickListener {
+            insertar()
+            binding.txtHdescripcion.setText("")
+            binding.txtHcantEmpleados.setText("")
+            binding.txtHpiso.setText("")
+            binding.txtHIdEdificio.setText("")
+            binding.txtHdivision.setText("")
+            binding.txtHdescripcion.requestFocus()
+        }
+
 
 
         /*--------------------------------- Hasta aquí -------------------------------------*/
@@ -64,56 +78,24 @@ class HomeFragment : Fragment() {
             .show()
     }
 
-    /*fun mostrar(){
-        dataList.clear()
-        listaIds.clear()
-        fireData.collection("area").addSnapshotListener { querySnapshot, ffException ->
-            if (ffException != null) {
-                alerta(ffException.toString())
-                return@addSnapshotListener
-            }
-            for (document in querySnapshot!!) {
-                dataArrayMap = document.get("subDepa") as ArrayList<String>
-                val idDepa = document.getString("subDepa.piso")
-                val division =
-                    "${document.getString("Division")}\nEn el ${dataArrayMap[1]} o $idDepa"
-                dataList.add(division)
-                listaIds.add(document.id)
-            }// fin del for
+    private fun insertar(){
+        val areaSubDepa = hashMapOf(
+            "descripcion" to binding.txtHdescripcion.text.toString(),
+            "division" to binding.txtHdivision.text.toString(),
+            "cantEmpleados" to binding.txtHcantEmpleados.text.toString().toInt(),
+            "subDepa" to hashMapOf(
+                "idEdificio" to binding.txtHIdEdificio.text.toString(),
+                "piso" to binding.txtHpiso.text.toString(),
+                "idSubdepa" to depaId.toString()
+            )//Hash map del subdepa
+        )// hash map del area
 
-            binding.lvHareas.adapter = ArrayAdapter(requireContext(),android.R.layout.simple_list_item_1,dataList)
-            binding.lvHareas.setOnItemClickListener { adapterView, view, i, l ->
-                val ide =  listaIds[i]
-                AlertDialog.Builder(requireContext()).setMessage("¿Que deseas hacer con ${dataList[i]}?")
-                    .setPositiveButton("Eliminar"){_,_ -> eliminar(ide) }
-                    .setNegativeButton("Modificar"){_,_ -> actualizarEdificio(ide,"este") }
-                    .setNeutralButton("Cerrar"){_,_ -> }
-                    .show()
-            }
-
-
-        }// fin del snapshot listener
-    }// fin del método para mostrar*/
-
-    private fun eliminar(idSeleccionado: String) {
-        fireData.collection("area").document(idSeleccionado).delete()
-            .addOnFailureListener {
-                alerta("No se pudo eliminar....\n${it.message!!}")
-            }
-            .addOnSuccessListener {
-                alerta("Se haa eliminado con exito")
-            }
-       // mostrar()
-    }
-
-    private fun actualizarEdificio(IdElegido: String, nuevoEdificio: String){
-        colAreaRef.document(IdElegido).update("subDepa.idEdificio",nuevoEdificio).
-                addOnSuccessListener {
-                    alerta("Campo actualizado de manera exitosa")
-                }
-            .addOnFailureListener {
-                mensaje("Error... \n${it.message}")
-            }
+        collectionAreaRef.add(areaSubDepa).addOnSuccessListener {
+            alerta("Area y subdepartamento agregados correctamente")
+        }.addOnFailureListener {
+            mensaje("No se pudo insertar \n ${it.message}")
+        }
+        depaId++
     }
 
     override fun onDestroyView() {
@@ -121,8 +103,4 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-    override fun onResume() {
-        //mostrar()
-        super.onResume()
-    }
 }

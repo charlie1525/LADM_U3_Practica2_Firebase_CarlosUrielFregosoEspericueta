@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Área:"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/txtUSdescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:hint="Descripción del área:"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/txtUSdivision"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:hint="División del área:"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/txtUScantEmpleados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:hint="Cantidad de empleados:"
+        android:inputType="number" />
+
+    <!--    Separacions de las partes de cada diseño -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="SubDepartamento:"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/txtUSIdEdificio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:hint="Nombre de Edifico"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/txtUSpiso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Piso:"
+        android:inputType="text" />
+
+</LinearLayout>
