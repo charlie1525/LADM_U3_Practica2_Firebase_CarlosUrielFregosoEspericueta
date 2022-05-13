@@ -1,5 +1,6 @@
 package mx.tecnm.ittepic.ladm_u3_practica2_basedatosfirebase_carlosurielfregosoespericueta.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.FirebaseFirestore
+import mx.tecnm.ittepic.ladm_u3_practica2_basedatosfirebase_carlosurielfregosoespericueta.SearchScreen
+import mx.tecnm.ittepic.ladm_u3_practica2_basedatosfirebase_carlosurielfregosoespericueta.SearchSubDepa
 import mx.tecnm.ittepic.ladm_u3_practica2_basedatosfirebase_carlosurielfregosoespericueta.databinding.FragmentHomeBinding
 
 
@@ -16,13 +19,9 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
 
     /*-------------------------------- Variables Globales ----------------------------------------*/
-    var fireData = FirebaseFirestore.getInstance()
-    val dataList = ArrayList<String>()
-    val listaIds = ArrayList<String>()
-    var depaId = 1
-    var dataArrayMap = ArrayList<String>()
-    val collectionAreaRef = fireData.collection("area")
-    var dataObjectMap = HashMap<String,Any>()
+    private var fireData = FirebaseFirestore.getInstance()
+    private var depaId = 1
+    private val collectionAreaRef = fireData.collection("area")
 
 
     /*--------------------------------------------------------------------------------------------*/
@@ -47,21 +46,32 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         /*--------------------------- Editar código desde aquí -----------------------------*/
-        binding.rgHbusquedaSubD.visibility = View.GONE
-        binding.rgHbusquedaArea.visibility = View.GONE
         // definiendo la funcionalidad de los radio buttons
+        val txtEdificio = binding.txtHIdEdificio.text
+        val txtDescripcion = binding.txtHdescripcion.text
+        val txtCantidad = binding.txtHcantEmpleados.text
+        val txtDivison = binding.txtHdivision.text
+        val txtPiso = binding.txtHpiso.text
 
         binding.btnHinsertar.setOnClickListener {
-            insertar()
-            binding.txtHdescripcion.setText("")
-            binding.txtHcantEmpleados.setText("")
-            binding.txtHpiso.setText("")
-            binding.txtHIdEdificio.setText("")
-            binding.txtHdivision.setText("")
-            binding.txtHdescripcion.requestFocus()
+            if(txtEdificio.isBlank() || txtPiso.isBlank() || txtDescripcion.isBlank() || txtDivison.isBlank() || txtCantidad.isBlank()) {
+                mensaje("No puedes dejar todos los campos vacios....\nLlena uno")
+                return@setOnClickListener
+            } else {
+                insertar()
+                binding.txtHdescripcion.setText("")
+                binding.txtHcantEmpleados.setText("")
+                binding.txtHpiso.setText("")
+                binding.txtHIdEdificio.setText("")
+                binding.txtHdivision.setText("")
+                binding.txtHdescripcion.requestFocus()
+            }
         }
 
-
+        binding.btnHbusqueda.setOnClickListener {
+            val searchWindow = Intent(context, SearchScreen::class.java)
+            startActivity(searchWindow)
+        }
 
         /*--------------------------------- Hasta aquí -------------------------------------*/
         return root
@@ -74,7 +84,7 @@ class HomeFragment : Fragment() {
     private fun mensaje(s: String) {
         AlertDialog.Builder(requireContext()).setTitle("ATENCION")
             .setMessage(s)
-            .setPositiveButton("OK"){ d,i-> }
+            .setPositiveButton("OK"){ _, _ -> }
             .show()
     }
 
@@ -91,7 +101,7 @@ class HomeFragment : Fragment() {
         )// hash map del area
 
         collectionAreaRef.add(areaSubDepa).addOnSuccessListener {
-            alerta("Area y subdepartamento agregados correctamente")
+            alerta("Área y subdepartamento agregados correctamente")
         }.addOnFailureListener {
             mensaje("No se pudo insertar \n ${it.message}")
         }

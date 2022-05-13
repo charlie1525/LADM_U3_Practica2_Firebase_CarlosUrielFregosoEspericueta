@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Área:"
         android:textColor="@color/black"
-        android:textSize="15sp" />
+        android:textSize="20sp"/>
 
     <EditText
         android:id="@+id/txtHdescripcion"
@@ -47,7 +47,7 @@
         android:layout_marginTop="5dp"
         android:text="SubDepartamento:"
         android:textColor="@color/black"
-        android:textSize="15sp" />
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/txtHIdEdificio"
@@ -75,85 +75,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Buscar" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Criterios de busqueda:"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
-
-    <RadioGroup
-        android:id="@+id/rgHcriterioBusqueda"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/rbtnHArea"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
-            android:text="Área" />
-
-        <RadioButton
-            android:id="@+id/rbtnHsubDepa"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:text="SubDepartamento" />
-    </RadioGroup>
-
-    <LinearLayout
-        android:id="@+id/parametrosBusqueda"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-
-        <RadioGroup
-            android:id="@+id/rgHbusquedaArea"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp">
-
-            <RadioButton
-                android:id="@+id/rbtnDescripcionB"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:text="Descripción" />
-
-            <RadioButton
-                android:id="@+id/rbtnDivisionB"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:text="División" />
-            android:text="División" />
-        </RadioGroup>
-
-        <RadioGroup
-            android:id="@+id/rgHbusquedaSubD"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:id="@+id/rbtnEdificioB"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:text="Edificio" />
-
-            <RadioButton
-                android:id="@+id/rbtnDivisionAB"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:text="División del Área" />
-
-            <RadioButton
-                android:id="@+id/rbtnDescripcinAB"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:text="Descripcion del Área" />
-        </RadioGroup>
-    </LinearLayout>
 
 </LinearLayout>

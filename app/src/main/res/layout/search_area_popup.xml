@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="División"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:gravity="center"/>
+
+        <ListView
+            android:id="@+id/lvSearchAreaDes"
+            android:layout_width="match_parent"
+            android:layout_height="194dp"
+            android:layout_marginTop="10dp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripcion:"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:gravity="center"/>
+
+        <ListView
+            android:id="@+id/lvAreaSearchDiv"
+            android:layout_width="match_parent"
+            android:layout_height="244dp"
+            android:layout_marginTop="10dp" />
+
+
+    </LinearLayout>
+
+</ScrollView>
+
+</LinearLayout>

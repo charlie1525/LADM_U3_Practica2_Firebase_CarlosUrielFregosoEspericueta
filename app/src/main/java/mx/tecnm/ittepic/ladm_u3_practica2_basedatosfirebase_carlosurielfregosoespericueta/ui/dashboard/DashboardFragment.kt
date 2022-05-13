@@ -41,7 +41,7 @@ class DashboardFragment : Fragment() {
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         /*------------------------------------------ Incio seguro de código -------------------------------------*/
-
+        mostrar()
 
         /*---------------------------------------- Fin espacio seguro de código ---------------------------------*/
         return binding.root
@@ -52,6 +52,7 @@ class DashboardFragment : Fragment() {
         dataListArea.clear()
         listaIds.clear()
         dataListSub.clear()
+
         fireData.collection("area").addSnapshotListener { querySnapshot, ffException ->
             if (ffException != null) {
                 alerta(ffException.toString())
@@ -200,7 +201,7 @@ class DashboardFragment : Fragment() {
     }
 
     override fun onResume() {
-        mostrar()
+        //mostrar()
         super.onResume()
     }
 

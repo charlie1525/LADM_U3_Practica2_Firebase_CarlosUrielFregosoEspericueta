@@ -4,8 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidProjects/Undiad3a/LADM_U3_Practica2_BaseDatosFirebase_CarlosUrielFregosoEspericueta/app/src/main/res/layout/activity_main.xml" value="0.2859375" />
+        <entry key="..\:/AndroidProjects/Undiad3a/LADM_U3_Practica2_BaseDatosFirebase_CarlosUrielFregosoEspericueta/app/src/main/res/layout/activity_search_screen.xml" value="0.3411458333333333" />
+        <entry key="..\:/AndroidProjects/Undiad3a/LADM_U3_Practica2_BaseDatosFirebase_CarlosUrielFregosoEspericueta/app/src/main/res/layout/activity_search_sub_depa.xml" value="0.3411458333333333" />
         <entry key="..\:/AndroidProjects/Undiad3a/LADM_U3_Practica2_BaseDatosFirebase_CarlosUrielFregosoEspericueta/app/src/main/res/layout/fragment_dashboard.xml" value="0.3411458333333333" />
         <entry key="..\:/AndroidProjects/Undiad3a/LADM_U3_Practica2_BaseDatosFirebase_CarlosUrielFregosoEspericueta/app/src/main/res/layout/fragment_home.xml" value="0.3411458333333333" />
+        <entry key="..\:/AndroidProjects/Undiad3a/LADM_U3_Practica2_BaseDatosFirebase_CarlosUrielFregosoEspericueta/app/src/main/res/layout/search_area_popup.xml" value="0.3411458333333333" />
+        <entry key="..\:/AndroidProjects/Undiad3a/LADM_U3_Practica2_BaseDatosFirebase_CarlosUrielFregosoEspericueta/app/src/main/res/layout/search_subdepa_popup.xml" value="0.3411458333333333" />
+        <entry key="..\:/AndroidProjects/Undiad3a/LADM_U3_Practica2_BaseDatosFirebase_CarlosUrielFregosoEspericueta/app/src/main/res/layout/searchpopup.xml" value="0.3411458333333333" />
         <entry key="..\:/AndroidProjects/Undiad3a/LADM_U3_Practica2_BaseDatosFirebase_CarlosUrielFregosoEspericueta/app/src/main/res/layout/udpate_screen.xml" value="0.3411458333333333" />
         <entry key="..\:/AndroidProjects/Undiad3a/LADM_U3_Practica2_BaseDatosFirebase_CarlosUrielFregosoEspericueta/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3411458333333333" />
       </map>
